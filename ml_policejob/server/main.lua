@@ -1,3 +1,9 @@
+----------------------------------------------------------------------------------
+data = {}
+TriggerEvent("redemrp_inventory:getData",function(call)
+    data = call
+end)
+---------------------------------------------------------------------------------------
 RegisterServerEvent("ml_policejob:checkjob")
 AddEventHandler("ml_policejob:checkjob", function()
       local _src = tonumber(source)
@@ -55,4 +61,60 @@ TriggerEvent('redemrp:getPlayerFromId', target, function()
 end)
 
 
+-- Server
+RegisterServerEvent('ml_policejob:weaponlasso')
+AddEventHandler('ml_policejob:weaponlasso', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_LASSO')
+        ItemData.AddItem(1)
+    end)
+end)
 
+RegisterServerEvent('ml_policejob:weaponcattleman')
+AddEventHandler('ml_policejob:weaponcattleman', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_REVOLVER_CATTLEMAN')
+        ItemData.AddItem(1)
+    end)
+end)
+
+RegisterServerEvent('ml_policejob:weaponhenry')
+AddEventHandler('ml_policejob:weaponhenry', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_REPEATER_HENRY')
+        ItemData.AddItem(1)
+    end)
+end)
+
+RegisterServerEvent('ml_policejob:weaponpumpshotgun')
+AddEventHandler('ml_policejob:weaponpumpshotgun', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_SHOTGUN_PUMP')
+            print("Wollffus#0001")
+        ItemData.AddItem(1)
+    end)
+end)
+
+RegisterServerEvent('ml_policejob:weaponrollingblock')
+AddEventHandler('ml_policejob:weaponrollingblock', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_SNIPERRIFLE_ROLLINGBLOCK')
+        ItemData.AddItem(1)
+    end)
+end)
+
+RegisterServerEvent('ml_policejob:weaponlantern')
+AddEventHandler('ml_policejob:weaponlantern', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_MELEE_LANTERN_ELECTRIC')
+        ItemData.AddItem(1)
+    end)
+end)
+
+RegisterServerEvent('ml_policejob:weaponknife')
+AddEventHandler('ml_policejob:weaponknife', function()
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        local ItemData = data.getItem(source, 'WEAPON_MELEE_KNIFE')
+        ItemData.AddItem(1)
+    end)
+end)
