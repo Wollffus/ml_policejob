@@ -1,5 +1,3 @@
-
-
 Citizen.CreateThread(function()
     local checkbox2 = false
     WarMenu.CreateMenu('perso', "Police")
@@ -61,13 +59,14 @@ Citizen.CreateThread(function()
             end
             WarMenu.Display()
 
-        elseif whenKeyJustPressed(keys["U"]) then 
+        elseif whenKeyJustPressed(keys["I"]) then 
            TriggerServerEvent("ml_policejob:checkjob")
         end
 		
         Citizen.Wait(0)
     end
 end)
+
 -- pd station
 Citizen.CreateThread(function()
     local checkbox2 = false
@@ -137,25 +136,22 @@ Citizen.CreateThread(function()
 				
             WarMenu.Display()
 
-        elseif WarMenu.IsMenuOpened('inv4') then   
-
+        elseif WarMenu.IsMenuOpened('inv4') then 
             if WarMenu.Button('Lasso') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_LASSO"), 500, true, 0)
-				elseif WarMenu.Button('Revolver') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_REVOLVER_CATTLEMAN"), 500, true, 0)
-			elseif WarMenu.Button('Repeater') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_REPEATER_HENRY"), 500, true, 0)
-			elseif WarMenu.Button('Shotgun') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_SHOTGUN_PUMP"), 500, true, 0)
-			elseif WarMenu.Button('Rifle') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_SNIPERRIFLE_ROLLINGBLOCK"), 500, true, 0)
-			elseif WarMenu.Button('Lantern') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_MELEE_LANTERN_ELECTRIC"), 500, true, 0)
-			elseif WarMenu.Button('Knife') then
-                Citizen.InvokeNative(0xB282DC6EBD803C75, GetPlayerPed(), GetHashKey("WEAPON_MELEE_KNIFE"), 500, true, 0)
-			
-			
-             end
+                TriggerServerEvent("ml_policejob:weaponlasso", 1)
+                elseif WarMenu.Button('Revolver') then
+                    TriggerServerEvent("ml_policejob:weaponcattleman", 1)
+            elseif WarMenu.Button('Repeater') then
+                TriggerServerEvent("ml_policejob:weaponhenry", 1)
+            elseif WarMenu.Button('Shotgun') then
+                TriggerServerEvent("ml_policejob:weaponpumpshotgun", 1)
+            elseif WarMenu.Button('Rifle') then
+                TriggerServerEvent("ml_policejob:weaponrollingblock", 1)
+            elseif WarMenu.Button('Lantern') then
+                TriggerServerEvent("ml_policejob:weaponlantern", 1)
+            elseif WarMenu.Button('Knife') then
+                TriggerServerEvent("ml_policejob:weaponknife", 1)
+        end
 			
             WarMenu.Display()
 elseif (Vdist(coords.x, coords.y, coords.z, -764.84, -1271.85, 44.04) < 1.0) then --blackw
@@ -360,6 +356,3 @@ AddEventHandler('ml_policejob:hogtie', function()
 		end
 	end)
 end)
-
-
-
